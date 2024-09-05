@@ -61,7 +61,6 @@ VALUES
 # Analysis: 
 
 # Assign all the companies in the Retail industry as "mother friendly workplace", "acceptable", or "abysmal" based on the maternity leave offered. 
-
 SELECT
 company_name,
 CASE 
@@ -73,4 +72,21 @@ FROM fortune_companies
 WHERE industry='Retail'
 ;
 
-# 
+# Which industries have an average revenue of at least $100 Billion, and what are their avg revenues?
+SELECT industry, ROUND(AVG(revenue),1) as avg_revenue_billions
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_revenue_billions>=100
+;
+
+# Which companies have healthcare benefits *and* at least 15 paid time off days?
+SELECT company_name
+FROM fortune_companies
+WHERE paid_time_off_days>15
+AND healthcare_benefits=1
+
+# Which company in the Retail industry has the more revenue, and what's their revenue? 
+SELECT company_name, max(revenue)
+FROM fortune_companies
+WHERE industry = 'Retail'
+;
