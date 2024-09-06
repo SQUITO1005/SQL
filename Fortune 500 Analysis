@@ -90,3 +90,9 @@ SELECT company_name, max(revenue)
 FROM fortune_companies
 WHERE industry = 'Retail'
 ;
+
+# Select all the companies that have healthcare benefits
+SELECT company_name
+FROM fortune_companies
+WHERE healthcare_benefits=1
+;
