@@ -42,3 +42,8 @@ FROM superstore;
 SELECT avg(price)
 FROM superstore
 WHERE category="Kitchen Supplies"
+
+#How many air purifiers are in stock?
+Select COUNT (stock_quantity)
+FROM superstore 
+ORDER BY item_name ='air purfiers';
